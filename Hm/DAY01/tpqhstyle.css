@@ -1,0 +1,31 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.wrap{
+    width: 600px;
+    height: 800px;
+    margin: 0 auto;
+    position: relative;
+}
+.wrap a{
+    display: block;
+    width: 100px;
+    height: 100px;
+    font-size: 5rem;
+    text-decoration:none;
+    position: absolute;
+    color: white;
+    cursor: pointer;
+}
+.wrap a:first-child{
+    top: 50%;
+}
+.wrap a:last-child{
+    top: 50%;
+    right: 0;
+}
+.wrap img{
+    width: 600px;
+    height: 800px;
+}

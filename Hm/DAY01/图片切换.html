@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>图片切换</title>
+    <link rel="stylesheet" href="tpqhstyle.css">
+</head>
+
+<body>
+    <div id="app">
+        <div class="wrap">
+            <a href="#" @click='prev' v-show='leftShow'>←</a>
+            <img v-bind:src='imgArr[index]' alt="">
+            <a href="#" @click='next' v-show='rightShow'>→</a>
+        </div>
+    </div>
+    <script src="vue.js"></script>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                imgArr: ["images/bk0.jpg", "images/bk1.jpg", "images/bk2.jpg", "images/bk3.jpg"],
+                index: 0,
+                leftShow: false,
+                rightShow: true,
+            },
+            methods: {
+                prev: function () {
+                    if (this.index > 0) {
+                        this.index--;
+                        if (this.index == 0) {
+                            this.leftShow = false;
+                        }
+                    }
+                },
+                next: function () {
+                    if (this.index < this.imgArr.length - 1) {
+                        this.index++;
+                        this.leftShow = true;
+                        if (this.index == 3) {
+                            this.rightShow = false;
+                        }
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
