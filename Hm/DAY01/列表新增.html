@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vue-for vue-model</title>
+</head>
+<body>
+    <div id="app">
+        <ul>
+            <input type="text" v-model='inputvalue' @keyup.enter='add'>
+            <li v-for='(item,index) in list'>
+                <span>{{ index+1 }}</span>
+                <span>{{ item }}</span>
+                <button @click = 'remove(index)'>×</button>
+            </li>
+        </ul>
+        <span v-if='list.length!=0'>{{ list.length }}项待办事宜</span>
+        <button @click =  'clear' v-show='list.length!=0'>clear</button>
+    </div>
+    <script src="vue.js"></script>
+    <script>
+        var app = new Vue({
+            el:'#app',
+            data:{
+                list:['写代码','睡觉','看书','聊天','打游戏'],
+                inputvalue:'好好学习，天天向上'
+            },
+            methods:{
+                add:function(){
+                    this.list.push(this.inputvalue);
+                },
+                remove:function(index){
+                    this.list.splice(index,1);
+                },
+                clear:function(){
+                    this.list = [];
+                }
+            }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>axios&vue</title>
+</head>
+
+<body>
+
+    <div id="app">
+
+        <!-- 创建一个按钮用于点击获取 -->
+        <input type="button" value="获取笑话" @click = 'getJoke'>
+        <!-- 创建一个P 用于存放文本 -->
+        <p>
+            {{ joke }}
+        </p>
+    </div>
+
+
+    <script src="vue.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+        var app = new Vue({
+            el:'#app',
+            data:{
+                joke:'好笑的笑话'
+            },
+            methods:{
+                getJoke:function(){
+                    var that = this;
+                    axios.get('https://autumnfish.cn/api/joke')
+                    .then(function(response){
+                        //此时函数内部的this和外部的this 不同 所以要先将外部this 保存起来
+                        that.joke = response.data
+                    },function(err){
+                        console.log(err);
+                    })
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

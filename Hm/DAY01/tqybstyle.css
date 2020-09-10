@@ -1,0 +1,81 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+a{
+    text-decoration: none;
+    color: #333;
+    font-size: .8rem;
+}
+body{
+    display: flex;
+}
+.wrap{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.search{
+    width: 50rem;
+    height: 20rem;
+    margin: auto;
+    text-align: center;
+}
+.group{
+    width: 25rem;
+    height: 2rem;
+    margin: 0 auto;
+    box-sizing: border-box;
+    display: flex;
+}
+.search .group input{
+    width: 20rem;
+    height: 2rem;
+    padding-left: 10px;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    border: 1px solid skyblue;
+}
+button{
+    width: 5rem;
+    height: 2rem;
+    border: none;
+    outline: none;
+    background-color: steelblue;
+    color: white;
+    vertical-align: bottom;
+    cursor: pointer;
+}
+.keyword{
+        padding-top: 1rem;
+}
+/* 展示部分 */
+ul{
+    width: 100rem;
+    margin: 3rem auto;
+    list-style: none;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+ul li {
+    width: 15rem;
+    height: 10rem;
+    border-right: 1px solid #ccc;
+    text-align: center;
+}
+ul li h2{
+    font-size: 2rem;
+    font-weight: 300;
+    color: orangered;
+}
+ul li span{
+    display: block;
+    font-size: 0.5rem;
+    margin: 2rem 0 2rem 0;
+    color: orangered;
+}
+ul li p{
+    color: rgb(94, 84, 84);
+}

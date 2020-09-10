@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>天气预报</title>
+    <link rel="stylesheet" href="tqybstyle.css">
+</head>
+<body>
+    <div class="wrap" id="app">
+        <!-- 搜索部分 -->
+        <div class="search">
+            <!-- 头部LOGO -->
+            <div class="logo"><img src="images/tq.png" alt=""></div>
+            <!-- 搜索部分 -->
+            <div class="group">
+                <input type="text" value="" v-model='city' @keyup.enter = 'getCity'>
+                <button class="ipt-btn">搜索</button>
+            </div>
+            <div class="keyword">
+                <a href="javascript:;"@click = 'changeCity("北京")'>北京</a>
+                <a href="javascript:;"@click = 'changeCity("深圳")'>深圳</a>
+                <a href="javascript:;"@click = 'changeCity("广州")'>广州</a>
+                <a href="javascript:;"@click = 'changeCity("上海")'>上海</a>
+            </div>
+        </div>
+        <!-- 展示部分 -->
+        <ul class="weather-list">
+            <li v-for='item in weatherList'>
+               <h2>{{ item.type }}</h2>
+             <span> <b>{{ item.low }}</b> ~ <b>{{ item.high }}</b> </span>
+               <p>{{ item.date }}</p>
+            </li>
+        </ul>
+    </div>
+    <script src="vue.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="tqybmain.js"></script>
+</body>
+</html>
