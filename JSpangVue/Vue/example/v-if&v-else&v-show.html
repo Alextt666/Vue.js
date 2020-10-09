@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>v-if&v-else&v-show</title>
+    <script src="../assets/js/vue.js"></script>
+  </head>
+
+  <body>
+    <div id="app">
+      <!-- v-if是根据条件判断是否生成  -->
+
+      <!-- <div v-if='Tologin'>你好</div>
+        <div v-else = 'Tologin'>请登录</div> -->
+
+      <!-- v-show是display：none 和 block -->
+      <div v-show="Tologin">你好</div>
+    </div>
+
+    <script>
+      var div = new Vue({
+        el: "#app",
+        data: {
+          Tologin: true,
+        },
+      });
+    </script>
+  </body>
+</html>
