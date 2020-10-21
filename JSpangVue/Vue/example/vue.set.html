@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>vue.set</title>
+    <script src="../assets/js/vue.js"></script>
+  </head>
+  <body>
+    <div id="app">{{count}}
+        <div><ul><li v-for='item in arr'>{{item}}</li></ul></div>
+    </div>
+    
+    <p><button onclick="add()">加数</button></p>
+    <script>
+        //1.构造器外部赋值
+        //2.实现加一的不同方法
+        //3.set 的使用场景 
+        function add(){
+            // app.count++;
+            // Vue.set(outData,'count',5);
+            // outData.count++;
+            Vue.set(outData.arr,1,'ddd');
+        }
+
+        var outData = {
+            count:10,
+            arr:['aaa','bbb','ccc']
+        }
+      var app = new Vue({
+        el: "#app",
+        data: outData,
+      });
+    </script>
+  </body>
+</html>

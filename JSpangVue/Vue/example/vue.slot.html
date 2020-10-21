@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>slot</title>
+    <script src="../assets/js/vue.js"></script>
+  </head>
+  <body>
+    <h1>slot</h1>
+    <hr />
+    <div id="app">
+      <!-- 进行一个传值 -->
+      <tian>
+        <span slot="blogUrl">{{ tianData.blogUrl }}</span>
+        <span slot="netName">{{ tianData.netName }}</span>
+        <span slot="skill">{{ tianData.skill }}</span>
+      </tian>
+    </div>
+
+    <template id="tep">
+      <!-- 上面传出的值要在这里接收 -->
+
+      <div>
+        <p>博客地址： <slot name="blogUrl"></slot></p>
+        <p>昵称： <slot name="netName"></slot></p>
+        <p>技能类型： <slot name="skill"></slot></p>
+      </div>
+    </template>
+
+    <script>
+      var tian = {
+        template: `#tep`,
+      };
+      var app = new Vue({
+        el: "#app",
+        data: {
+          tianData: {
+            blogUrl: "www.baidu.com",
+            netName: "小胖",
+            skill: "front-end",
+          },
+        },
+        components: {
+          tian: tian,
+        },
+      });
+    </script>
+  </body>
+</html>

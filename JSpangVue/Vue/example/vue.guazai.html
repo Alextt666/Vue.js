@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>挂载$mount等实例</title>
+    <script src="../assets/js/vue.js"></script>
+  </head>
+  <body>
+    <h1>挂载$mount等实例</h1>
+    <hr>
+    <div id="app">
+       
+    </div>
+    <button onclick="destroy()">销毁</button>
+    <button onclick="update()">更新</button>
+    <script>
+        //1.挂载扩展
+      var tiantian = Vue.extend({
+          template:`<p>Hi I'm TianTian! {{ message }}</p>`,
+          data:function(){
+              return {
+                  message:'Nice to meet you!',
+              }
+          },
+          destroyed:function(){
+              console.log('被销毁了')
+          },
+          updated:function(){
+              console.log('我更新完了')
+          }
+      })
+      var vm = new tiantian().$mount('#app');
+      function destroy(){
+          vm.$destroy();
+      };
+      function update(){
+          vm.$forceUpdate();
+      }
+    </script>
+  </body>
+</html>

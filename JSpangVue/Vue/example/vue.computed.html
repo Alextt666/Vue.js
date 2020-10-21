@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HelloWorld</title>
+    <script src="../assets/js/vue.js"></script>
+  </head>
+  <body>
+    <div id="app">
+        <p>{{ newPrice }}</p>
+        <input type="text" id="count" v-model = 'price'>
+        <label for="count">请输入一个价格</label>
+        <ol>
+            <li v-for= 'item in newsList'>{{ item.title }} 日期是：{{ item.date }}</li>
+        </ol>
+    </div>
+        
+    <script>
+        //写一个价格输出
+        //写一个新闻列表
+      
+      var app = new Vue({
+        el: "#app",
+        data: {
+          price:800,
+          news:[
+              {title:'国家主席习近平任免驻外大使',date:'2020/01/03'},
+              {title:'与时代同步与改革同频',date:'2020/01/04'},
+              {title:'拉美学界出版专著',date:'2020/01/05'},
+          ]
+        },
+        computed:{
+            newPrice:function(){
+                return '￥' + this.price + '元';
+            },
+            newsList:function(){
+                return this.news.reverse();
+            }
+        }
+      });
+    </script>
+  </body>
+</html>

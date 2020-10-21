@@ -3,20 +3,24 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>HelloWorld</title>
+    <title>template实例</title>
     <script src="../assets/js/vue.js"></script>
   </head>
   <body>
-    <h1>Hello world</h1>
-    <hr>
+      <h1>Template三种写法</h1>
     <div id="app">{{message}}</div>
-
+        <template id="dd2"><h1 style = color:red> 我是标签模板 </h1></template>
+    <script type="x-template" id="dd3">
+        <h1 style = color:red> 我是Script模板 </h1>
+    </script>
     <script>
       var app = new Vue({
         el: "#app",
         data: {
           message: "Hello World!",
         },
+        template:'#dd3'
+        // template:`<h1 style = color:red> 我是选项模板 </h1>`
       });
     </script>
   </body>

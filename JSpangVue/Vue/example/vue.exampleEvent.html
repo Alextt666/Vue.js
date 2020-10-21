@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>实例事件</title>
+    <script src="../assets/js/vue.js"></script>
+  </head>
+  <body>
+    <h1>实例事件</h1>
+    <hr>
+    <div id="app">
+        <p>{{num}}</p>
+        <button @click="add()">add</button>
+    </div>
+    <div><button onclick="reduce()">reduce</button></div>
+    <div><button onclick="reduceOnce()">reduceOnce</button></div>
+    <div><button onclick="off()">offEvent</button></div>
+   
+    <script>
+        //计数器功能实现的基础上 
+        //使用实例事件 增加减法 和 一次性减法 和解绑
+      var app = new Vue({
+        el: "#app",
+        data: {
+          num:1,
+        },
+        methods:{
+            add:function(){
+                this.num ++;
+            }
+        }
+      });
+      
+      app.$on('reduce',function(){
+          console.log('执行了外部减法实例')
+          this.num--;
+      })
+      function reduce(){
+         app.$emit('reduce');
+      }
+      app.$once('reduceOnce',function(){
+          console.log('只执行一次')
+          this.num--;
+      })
+      function reduceOnce(){
+          app.$emit('reduceOnce');
+      }
+     //解绑事件
+     function off(){
+         app.$off('reduce');
+     }
+    </script>
+  </body>
+</html>

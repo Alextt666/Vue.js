@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>component-1实例</title>
+    <script src="../assets/js/vue.js"></script>
+  </head>
+  <body>
+      <h1>component-1实例</h1>
+    <div id="app">
+        <tian></tian>
+        <x-tian></x-tian>
+        <num-tian></numtian>
+    </div>
+
+    <script>
+        //尝试定义一个全局组件
+        Vue.component('tian',{
+            template:`<h2 style = color:red>我是全局组件tian</h2>`
+        })
+        //尝试定义一个局部组件
+      var app = new Vue({
+        el: "#app",
+        components:{
+            'x-tian':{template:`<h2 style = color:green>我是局部组件xtian</h2>`},
+            'num-tian':{template:`<h3>我是数字10</h3>`},
+        },
+      });
+    </script>
+  </body>
+</html>

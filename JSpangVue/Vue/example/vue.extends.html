@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>extends Option</title>
+    <script src="../assets/js/vue.js"></script>
+  </head>
+  <body>
+    <h1>extends Option</h1>
+    <hr>
+    <div id="app">
+        <p>${ num }</p>
+        <button @click = 'add()'>add</button>
+    </div>
+
+    <script>
+        //用扩展添加方法
+        //更换差值表达式的写法
+       var extendsway = {
+           updated:function(){
+               console.log('我是扩展出来的updated')
+           }
+       }
+      var app = new Vue({
+        el: "#app",
+        data: {
+          num:1,
+        },
+        methods:{
+            add:function(){
+                this.num++;
+            }
+        },
+        updated:function(){
+            console.log('我是原生的updated')
+        },
+        extends:extendsway,
+        delimiters:['${','}']
+      });
+
+    </script>
+  </body>
+</html>

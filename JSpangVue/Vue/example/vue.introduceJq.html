@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Introduce JQ</title>
+    <script src="../assets/js/vue.js"></script>
+    <script src="../assets/js/jquery.min.js"></script>
+  </head>
+  <body>
+    <h1>Introduce JQ </h1>
+    <hr>
+    <div id="app">{{message}}
+    </div>
+
+    <script>
+        //从外部引入JQ并使用
+        //在全局调用 实例app的内置方法
+      var app = new Vue({
+        el: "#app",
+        data: {
+          message: "Hello World!",
+          num:1,
+        },
+        methods:{
+            add:function(){
+                console.log('外部调用成功! ')
+            }
+        },
+        mounted:function(){
+            $('#app').html('我使用引入的JQ方法改变啦！ ')
+        }
+      });
+      app.add()
+    </script>
+  </body>
+</html>
